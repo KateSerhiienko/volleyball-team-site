@@ -1,35 +1,91 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <header>
+        <nav>
+          <img src="" alt="Logo" />
+          <ul>
+            <li>Home</li>
+            <li>Events</li>
+            <li>Team</li>
+          </ul>
+          <input type="search" />
+        </nav>
+
+        <section>
+          {/* hero */}
+          <h1>
+            Welcome to <i>Freiberger Maulwürfe</i> Team
+          </h1>
+        </section>
+      </header>
+
+      <main>
+        <section>
+          <div>Upcoming</div>
+
+          <div>
+            Last event
+            <h2>Tournament in ...</h2>
+            <p>Tournament description</p>
+            <div>{/* results */}</div>
+            {/* eventGallery */}
+            <div>
+              <ul>
+                <li>
+                  <img src="" alt="" />
+                </li>
+                <li>
+                  <img src="" alt="" />
+                </li>
+                <li>
+                  <img src="" alt="" />
+                </li>
+                <li>
+                  <img src="" alt="" />
+                </li>
+                <li>
+                  <img src="" alt="" />
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>Last events</div>
+        </section>
+
+        <section>
+          Team
+          <h2>Our Team</h2>
+          <p>Team description</p>
+          <div>
+            {/* teamGallery */}
+            <ul>
+              <li>
+                <img src="" alt="" />
+              </li>
+              <li>
+                <img src="" alt="" />
+              </li>
+              <li>
+                <img src="" alt="" />
+              </li>
+              <li>
+                <img src="" alt="" />
+              </li>
+              <li>
+                <img src="" alt="" />
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div>Footer</div>
+      </footer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,91 +1,29 @@
-function App() {
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import LastEvent from './components/LastEvent';
+import Events from './components/Events';
+import Team from './components/Team';
+import Contacts from './components/Contacts';
+
+const App = () => {
   return (
     <>
       <header>
-        <nav>
-          <img src="" alt="Logo" />
-          <ul>
-            <li>Home</li>
-            <li>Events</li>
-            <li>Team</li>
-          </ul>
-          <input type="search" />
-        </nav>
-
-        <section>
-          {/* hero */}
-          <h1>
-            Welcome to <i>Freiberger Maulwürfe</i> Team
-          </h1>
-        </section>
+        <Navbar />
       </header>
 
       <main>
-        <section>
-          <div>Upcoming</div>
-
-          <div>
-            Last event
-            <h2>Tournament in ...</h2>
-            <p>Tournament description</p>
-            <div>{/* results */}</div>
-            {/* eventGallery */}
-            <div>
-              <ul>
-                <li>
-                  <img src="" alt="" />
-                </li>
-                <li>
-                  <img src="" alt="" />
-                </li>
-                <li>
-                  <img src="" alt="" />
-                </li>
-                <li>
-                  <img src="" alt="" />
-                </li>
-                <li>
-                  <img src="" alt="" />
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div>Last events</div>
-        </section>
-
-        <section>
-          Team
-          <h2>Our Team</h2>
-          <p>Team description</p>
-          <div>
-            {/* teamGallery */}
-            <ul>
-              <li>
-                <img src="" alt="" />
-              </li>
-              <li>
-                <img src="" alt="" />
-              </li>
-              <li>
-                <img src="" alt="" />
-              </li>
-              <li>
-                <img src="" alt="" />
-              </li>
-              <li>
-                <img src="" alt="" />
-              </li>
-            </ul>
-          </div>
-        </section>
+        <Hero />
+        <LastEvent />
+        <Events />
+        <Team />
       </main>
 
       <footer>
-        <div>Footer</div>
+        <Contacts />
       </footer>
     </>
   );
-}
+};
 
 export default App;

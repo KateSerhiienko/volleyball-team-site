@@ -2,8 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
+@layer base {
+  @font-face {
+    font-family: 'RobotoCondensed';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('./assets/fonts/RobotoCondensed-Regular.ttf') format('ttf');
+  }
 
+  @font-face {
+    font-family: 'RobotoCondensed';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('./assets/fonts/RobotoCondensed-Bold.ttf') format('ttf');
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply py-3 px-9 bg-red-600 text-white rounded-full shadow-xl hover:bg-white hover:text-black focus:outline-none transition-all;
+  }
+}
+
+@layer utilities {
   .input-search-reset {
     @apply border-none bg-transparent outline-none focus:outline-none focus:ring-0 placeholder-transparent appearance-none;
   }

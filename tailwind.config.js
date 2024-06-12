@@ -7,12 +7,21 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Arial', 'sans-serif']
+        sans: ['Arial', 'sans-serif'],
+        accent: ['RobotoCondensed', 'Arial', 'sans-serif']
       },
-      gridTemplateColumns: {
-        '70/30': '70% 28%',
+      colors: {
+        'header-bg': '#111115',
       },
-    },
-    plugins: [],
+      dropShadow: {
+        'black': [
+          '0 2px 4px rgba(0, 0, 0, 1)',
+          '0 10px 40px rgba(0, 0, 0, 0.4)'],
+      },
+      transitionDuration: {
+        '2500': '2500ms',
+      },
+      plugins: [],
+    }
   }
 }

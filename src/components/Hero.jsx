@@ -1,9 +1,33 @@
 import { useState } from 'react';
+import Upcoming from './Upcoming';
 import heroBg from '../assets/images/hero-bg.webp';
 import player from '../assets/images/hero-player.png';
 import ball from '../assets/images/hero-ball.png';
 
 const Hero = () => {
+  const upcomingEvents = [
+    {
+      title:
+        'Sächsische Hochschulmeisterschaften im Beachvolleyball Männer und Frauen',
+      date: '09.07.2024',
+      time: '09:00',
+      place: 'Dresden, Sportanlage des Dresdner SSV',
+    },
+    {
+      title: 'Sächsische Hochschulmeisterschaften im Beachvolleyball mixed',
+      date: '10.07.2024',
+      time: '09:00',
+      place: 'Dresden, Sportanlage des Dresdner SSV',
+    },
+    {
+      title:
+        'Sächsische Hochschulmeisterschaften im Beachvolleyball Männer und Frauen',
+      date: '13.06.2024',
+      time: '09:00',
+      place: 'Dresden, Sportanlage des Dresdner SSV',
+    },
+  ];
+
   const [offsetX, setOffsetX] = useState(0);
   const [offsetY, setOffsetY] = useState(0);
 
@@ -58,20 +82,22 @@ const Hero = () => {
         }}
       ></div>
 
-      <div className="w-full max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      <div className="flex flex-col justify-around w-full h-full max-w-7xl mx-auto pt-20 pb-4 px-2 sm:px-6 lg:px-8">
+        <div className="self-end max-w-sm">
+          <Upcoming upcomingEvents={upcomingEvents} />
+        </div>
+
         <div className="max-w-sm drop-shadow-black">
           <h1 className="mb-4 font-accent text-5xl text-white font-bold drop-shadow-black">
-            <span className="text-xl text-red-600">WELCOME TO </span>
+            <span className="text-lg text-red-600">WELCOME TO </span>
             FREIBERGER MAULWÜRFE TEAM
           </h1>
-          <p className="mb-4 text-white brightness-90 drop-shadow-black">
+          <p className="hidden md:block mb-4 text-sm text-white brightness-5 drop-shadow-black">
             Step into the world of the Freiberger Maulwürfe Team! Get ready to
             dive into the team spirit and meet our amazing players.
           </p>
-          <button className="mb-20 btn-primary">Meet the Team</button>
+          <button className="btn-primary">Meet the Team</button>
         </div>
-
-        <div className="absolute">Upcoming</div>
       </div>
     </section>
   );

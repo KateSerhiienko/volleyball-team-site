@@ -19,15 +19,15 @@ const Navbar = () => {
     };
   }, []);
 
-  const bgClass = scrollPosition > 4 ? 'bg-header-bg' : 'bg-transparent';
+  const bgClass = scrollPosition > 4 ? 'bg-main-dark' : 'bg-transparent';
 
   return (
-    <nav className={`z-10 fixed top-0 left-0 right-0  w-full ${bgClass}`}>
-      <div className="flex items-center justify-between h-20 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <nav className={`z-20 fixed top-0 left-0 right-0  w-full ${bgClass}`}>
+      <div className="flex items-center justify-between h-20 external-container">
         <div className="flex p-1 rounded-full bg-gradient-to-r from-white/15 to-40% ">
-          <div className="flex flex-shrink-0 items-center md:mr-20">
+          <div className="flex flex-shrink-0 items-center md:mr-16">
             <img className="h-10 mr-4" src={logo} alt="Freiberger Maulwürfe" />
-            <span className="hidden md:block text-white">
+            <span className="hidden md:block text-white font-accent tracking-widest">
               Freiberger Maulwürfe
             </span>
           </div>
@@ -45,7 +45,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="h-12 flex items-center py-1 px-4 rounded-full bg-white/10">
+        <div className="hidden sm:flex items-center h-12  py-1 px-4 rounded-full bg-white/10">
           <input
             className={`input-search-reset  placeholder:text-white/40 text-white  transition-all duration-1000
           ${showSearchInput ? 'w-48 opacity-100' : 'w-0 opacity-0'}`}

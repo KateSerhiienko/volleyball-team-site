@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { FaMapMarker, FaTrophy } from 'react-icons/fa';
 
-const Upcoming = ({ upcomingEvents }) => {
+const Upcoming = ({ upcomingEvents = [] }) => {
   const getNearestEvents = () => {
     const today = new Date();
 
@@ -28,17 +28,17 @@ const Upcoming = ({ upcomingEvents }) => {
   const nearestEvents = getNearestEvents();
 
   return (
-    <div className="text-right text-white drop-shadow-black">
+    <div className="text-right text-white">
       {nearestEvents && nearestEvents.length > 1 ? (
         <>
-          <h2 className="mb-1 font-bold">
+          {/* <h2 className="mb-1 font-bold ">
             {nearestEvents.length > 0 ? 'Upcoming events:' : 'Upcoming event:'}
-          </h2>
+          </h2> */}
           {nearestEvents.map((event, index) => (
-            <div className="mb-4  text-right" key={index}>
+            <div className="mb-4 text-right" key={index}>
               <div>
                 <div>
-                  <FaTrophy className="inline pb-1 mr-1" />
+                  <FaTrophy className="inline pb-1 mr-1 text-red-600" />
                   <span className=" w-auto mb-1">{event.title}</span>
                 </div>
                 <p className="brightness-50">
@@ -53,7 +53,7 @@ const Upcoming = ({ upcomingEvents }) => {
           ))}
         </>
       ) : (
-        <p>
+        <p className="text-sm">
           Stay tuned for our upcoming events! We&apos;re eagerly preparing for
           exciting competitions. Meanwhile, we&apos;re looking forward to your
           invitations for upcoming tournaments.

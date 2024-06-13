@@ -2,22 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  @font-face {
-    font-family: 'RobotoCondensed';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('./assets/fonts/RobotoCondensed-Regular.ttf') format('ttf');
-  }
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/fonts/Poppins-Regular.ttf') format('truetype');
+}
 
-  @font-face {
-    font-family: 'RobotoCondensed';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url('./assets/fonts/RobotoCondensed-Bold.ttf') format('ttf');
-  }
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./assets/fonts/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BebasNeue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/fonts/BebasNeue-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BebasNeue';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./assets/fonts/BebasNeue-Bold.ttf') format('truetype');
 }
 
 @layer components {
@@ -27,6 +41,10 @@
 }
 
 @layer utilities {
+  .external-container {
+    @apply max-w-7xl mx-auto px-2 sm:px-6 lg:px-8;
+  }
+
   .input-search-reset {
     @apply border-none bg-transparent outline-none focus:outline-none focus:ring-0 placeholder-transparent appearance-none;
   }

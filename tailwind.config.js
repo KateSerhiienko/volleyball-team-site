@@ -7,11 +7,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Arial', 'sans-serif'],
-        accent: ['RobotoCondensed', 'Arial', 'sans-serif']
+        sans: ['Poppins', 'sans-serif'],
+        accent: ['BebasNeue', 'sans-serif'],
       },
       colors: {
-        'header-bg': '#111115',
+        'main-dark': '#111115',
       },
       dropShadow: {
         'black': [

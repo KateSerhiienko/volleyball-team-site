@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { FaMapMarker, FaTrophy } from 'react-icons/fa';
+import { FaMapMarker, FaCalendar, FaTrophy } from 'react-icons/fa';
 
 const Upcoming = ({ upcomingEvents = [] }) => {
   const getNearestEvents = () => {
@@ -36,19 +36,18 @@ const Upcoming = ({ upcomingEvents = [] }) => {
           </h2> */}
           {nearestEvents.map((event, index) => (
             <div className="mb-4 text-right" key={index}>
-              <div>
-                <div>
-                  <FaTrophy className="inline pb-1 mr-1 text-red-600" />
-                  <span className=" w-auto mb-1">{event.title}</span>
-                </div>
-                <p className="brightness-50">
-                  {event.date} {event.time}
-                </p>
-                <div className="text-sm brightness-50">
-                  <FaMapMarker className="inline pb-1 mr-1 text-sm" />
-                  <span>{event.place}</span>
-                </div>
-              </div>
+              <p>
+                <FaTrophy className="inline pb-1 mr-1 text-red-600" />
+                <span className=" w-auto mb-1">{event.title}</span>
+              </p>
+              <p className="brightness-50">
+                <FaCalendar className="inline pb-1 mr-1 text-sm" />
+                {event.date} {event.time}
+              </p>
+              <p className="text-sm brightness-50">
+                <FaMapMarker className="inline pb-1 mr-1 text-sm" />
+                <span>{event.place}</span>
+              </p>
             </div>
           ))}
         </>

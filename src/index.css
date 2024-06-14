@@ -36,7 +36,7 @@
 
 @layer components {
   .btn-primary {
-    @apply py-3 px-9 bg-red-600 text-white rounded-full shadow-xl hover:bg-white hover:text-black hover:shadow-none focus:outline-none transition-all;
+    @apply py-3 px-9 bg-red-700 text-white rounded-full shadow-xl hover:bg-white hover:text-black hover:shadow-none focus:outline-none transition-all;
   }
 
   .btn-primary-2 {

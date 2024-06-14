@@ -56,3 +56,24 @@
     -webkit-appearance: none;
   }
 }
+
+.slick-arrow {
+  @apply z-10 transition-all opacity-30 hover:opacity-80;
+}
+
+.slick-arrow:before {
+  @apply text-4xl text-main-dark;
+}
+
+/* .slick-prev,
+.slick-next {
+  @apply top-auto bottom-7;
+} */
+
+.slick-prev {
+  @apply left-0;
+}
+
+.slick-next {
+  @apply right-4;
+}

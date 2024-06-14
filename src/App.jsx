@@ -4,7 +4,7 @@ import Hero from './components/Hero';
 import LastEvent from './components/LastEvent';
 import PastEvents from './components/PastEvents';
 import Team from './components/Team';
-import Contacts from './components/Contacts';
+import Footer from './components/Footer';
 
 const App = () => {
   const data = {
@@ -210,7 +210,7 @@ const App = () => {
       </main>
 
       <footer>
-        <Contacts />
+        <Footer />
       </footer>
     </div>
   );

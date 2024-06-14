@@ -5,10 +5,14 @@ import EventCard from './EventCard';
 const PastEvents = ({ pastEvents }) => {
   const [showAllPastEvents, setShowAllPastEvents] = useState(false);
 
-  let shownEvents = pastEvents;
+  const reversedPastEvents = pastEvents
+    .slice(0, pastEvents.length - 1)
+    .reverse();
+
+  let shownEvents = reversedPastEvents;
 
   if (!showAllPastEvents) {
-    shownEvents = pastEvents.slice(0, 3);
+    shownEvents = reversedPastEvents.slice(0, 3);
   }
 
   return (

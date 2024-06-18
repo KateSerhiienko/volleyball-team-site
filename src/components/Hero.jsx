@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import heroBg from '../assets/images/hero-bg.webp';
 import player from '../assets/images/hero-player.png';
 import ball from '../assets/images/hero-ball.png';
@@ -104,7 +104,9 @@ const Hero = ({ children }) => {
             Step into the world of the Freiberger Maulwürfe Team! Get ready to
             dive into the team spirit and meet our amazing players.
           </p>
-          <button className="btn-primary">Meet the Team</button>
+          <Link to="/team">
+            <button className="btn-primary">Meet the Team</button>
+          </Link>
         </motion.div>
       </div>
     </section>

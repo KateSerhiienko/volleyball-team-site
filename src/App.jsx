@@ -1,10 +1,14 @@
-import Navbar from './components/Navbar';
-import Upcoming from './components/Upcoming';
-import Hero from './components/Hero';
-import LastEvent from './components/LastEvent';
-import PastEvents from './components/PastEvents';
-import Team from './components/Team';
-import Footer from './components/Footer';
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from 'react-router-dom';
+import MainLayout from './layouts/MainLayout';
+import HomePage from './pages/HomePage';
+import EventsPage from './pages/EventsPage';
+import TeamPage from './pages/TeamPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const App = () => {
   const data = {
@@ -192,28 +196,20 @@ const App = () => {
     ],
   };
 
-  return (
-    <div className="text-main-dark">
-      <header>
-        <Navbar />
-      </header>
-
-      <main>
-        <Hero>
-          <Upcoming upcomingEvents={data.upcomingEvents} />
-        </Hero>
-        <LastEvent
-          lastEvent={data.eventsArchive[data.eventsArchive.length - 1]}
-        />
-        <PastEvents pastEvents={data.eventsArchive} />
-        <Team teamMembers={data.teamMembers} />
-      </main>
-
-      <footer>
-        <Footer />
-      </footer>
-    </div>
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<HomePage data={data} />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/team" element={<TeamPage />} />
+        </Route>
+        <Route path="/*" element={<NotFoundPage />} />
+      </>
+    )
   );
+
+  return <RouterProvider router={router} />;
 };
 
 export default App;

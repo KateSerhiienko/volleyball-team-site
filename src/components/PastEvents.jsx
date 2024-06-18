@@ -1,19 +1,9 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import EventCard from './EventCard';
 
 const PastEvents = ({ pastEvents }) => {
-  const [showAllPastEvents, setShowAllPastEvents] = useState(false);
-
-  const reversedPastEvents = pastEvents
-    .slice(0, pastEvents.length - 1)
-    .reverse();
-
-  let shownEvents = reversedPastEvents;
-
-  if (!showAllPastEvents) {
-    shownEvents = reversedPastEvents.slice(0, 3);
-  }
+  const reversedPastEvents = pastEvents.slice(0, 3).reverse();
 
   return (
     <div className="bg-main-dark/10">
@@ -22,17 +12,16 @@ const PastEvents = ({ pastEvents }) => {
           <p className="text-lg text-red-600">Gallery of</p>
           <p className="text-4xl">our past events</p>
         </h2>
-        <div className="mb-6">
-          {shownEvents.map((event, index) => (
+        <div className="mb-10">
+          {reversedPastEvents.map((event, index) => (
             <EventCard key={index} event={event} />
           ))}
         </div>
-        <button
-          className="block btn-primary-2 mx-auto"
-          onClick={() => setShowAllPastEvents((prevState) => !prevState)}
-        >
-          {showAllPastEvents ? 'Show less events' : 'Show more events'}
-        </button>
+        <Link to="/events">
+          <button className="block btn-primary-2 mx-auto">
+            Show more events
+          </button>
+        </Link>
       </div>
     </div>
   );

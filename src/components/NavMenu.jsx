@@ -1,16 +1,27 @@
+import { NavLink } from 'react-router-dom';
+
 const NavMenu = () => {
   return (
     <>
       <div className="flex items-center">
-        <div className="mr-10 transition cursor-pointer hover:text-white active:text-red-600">
+        <NavLink
+          className="mr-10 transition cursor-pointer hover:text-white active:text-red-600"
+          to="/"
+        >
           Home
-        </div>
-        <div className="mr-10 transition cursor-pointer hover:text-white active:text-red-600">
+        </NavLink>
+        <NavLink
+          className="mr-10 transition cursor-pointer hover:text-white active:text-red-600"
+          to="/events"
+        >
           Events
-        </div>
-        <div className="transition cursor-pointer hover:text-white active:text-red-600">
+        </NavLink>
+        <NavLink
+          className="transition cursor-pointer hover:text-white active:text-red-600"
+          to="/team"
+        >
           Team
-        </div>
+        </NavLink>
       </div>
     </>
   );

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { Link } from 'react-router-dom';
 
 const Team = ({ teamMembers }) => {
   const sliderSettings = {
@@ -48,7 +49,7 @@ const Team = ({ teamMembers }) => {
         the individuals who make every game a thrilling experience. Stay tuned
         for updates on our upcoming matches and events!
       </p>
-      <Slider {...sliderSettings}>
+      <Slider {...sliderSettings} className="mb-10">
         {teamMembers.map((member, index) => (
           <div key={index}>
             <div className="w-56 h-auto mx-auto p-4 bg-main-dark/10 rounded overflow-hidden text-center">
@@ -66,6 +67,9 @@ const Team = ({ teamMembers }) => {
           </div>
         ))}
       </Slider>
+      <Link to="/team">
+        <button className="block btn-primary-2 mx-auto">Show all Team</button>
+      </Link>
     </section>
   );
 };

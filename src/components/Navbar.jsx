@@ -28,8 +28,8 @@ const Navbar = () => {
     >
       <div className="flex items-center justify-between h-20 external-container">
         <div className="flex p-1 rounded-full bg-gradient-to-r from-white/15 to-40% ">
-          <div className="flex flex-shrink-0 items-center md:mr-16">
-            <img className="h-10 mr-4" src={logo} alt="Freiberger Maulwürfe" />
+          <div className="flex flex-shrink-0 items-center mr-4 md:mr-24">
+            <img className="h-10 mr-8" src={logo} alt="Freiberger Maulwürfe" />
             <span className="hidden md:block text-white font-accent tracking-widest">
               Freiberger Maulwürfe
             </span>

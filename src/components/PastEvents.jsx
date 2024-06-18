@@ -16,8 +16,8 @@ const PastEvents = ({ pastEvents }) => {
   }
 
   return (
-    <div className="bg-slate-100">
-      <div className="external-container py-8">
+    <div className="bg-main-dark/10">
+      <div className="external-container py-10 sm:py-16 lg:py-20">
         <h2 className="mb-4 text-center font-accent tracking-widest font-bold">
           <p className="text-lg text-red-600">Gallery of</p>
           <p className="text-4xl">our past events</p>

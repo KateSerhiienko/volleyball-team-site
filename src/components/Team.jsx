@@ -35,7 +35,7 @@ const Team = ({ teamMembers }) => {
   };
 
   return (
-    <section className="external-container py-8">
+    <section className="external-container py-10 sm:py-16 lg:py-20">
       <h2 className="mb-4 text-center font-accent tracking-widest font-bold">
         <p className="text-lg text-red-600">TEAM</p>
         <p className="text-4xl">FREIBERGER MAULWÜRFE</p>
@@ -51,7 +51,7 @@ const Team = ({ teamMembers }) => {
       <Slider {...sliderSettings}>
         {teamMembers.map((member, index) => (
           <div key={index}>
-            <div className="w-56 h-auto mx-auto p-4 bg-slate-100 rounded overflow-hidden text-center">
+            <div className="w-56 h-auto mx-auto p-4 bg-main-dark/10 rounded overflow-hidden text-center">
               <div
                 className="w-full h-72 mb-4 rounded bg-cover bg-top bg-no-repeat"
                 style={{

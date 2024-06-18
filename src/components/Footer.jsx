@@ -5,7 +5,7 @@ import logo from '../assets/images/logo-full.png';
 const Footer = () => {
   return (
     <div className="bg-main-dark text-white/40">
-      <div className="external-container py-8">
+      <div className="external-container py-10 sm:py-16 lg:py-20">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row md:gap-28">
           <ContactUsForm />
           <img

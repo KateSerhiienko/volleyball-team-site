@@ -1,9 +1,18 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import EventCard from './EventCard';
 
-const PastEvents = ({ pastEvents }) => {
-  const reversedPastEvents = pastEvents.slice(0, 3).reverse();
+const PastEvents = ({ pastEvents, showAllEvents }) => {
+  const [visibleCount, setVisibleCount] = useState(6);
+
+  const eventsToShow = showAllEvents
+    ? pastEvents.slice().reverse()
+    : pastEvents.slice(0, 3).reverse();
+
+  const loadMoreEvents = () => {
+    setVisibleCount((prevCount) => prevCount + 6);
+  };
 
   return (
     <div className="bg-main-dark/10">
@@ -13,15 +22,28 @@ const PastEvents = ({ pastEvents }) => {
           <p className="text-4xl">our past events</p>
         </h2>
         <div className="mb-10">
-          {reversedPastEvents.map((event, index) => (
+          {eventsToShow.slice(0, visibleCount).map((event, index) => (
             <EventCard key={index} event={event} />
           ))}
         </div>
-        <Link to="/events">
-          <button className="block btn-primary-2 mx-auto">
-            Show more events
-          </button>
-        </Link>
+        {!showAllEvents ? (
+          <Link to="/events">
+            <button className="block btn-primary-2 mx-auto">
+              Show more events
+            </button>
+          </Link>
+        ) : (
+          visibleCount < eventsToShow.length && (
+            <div className="text-center">
+              <button
+                className="block btn-primary-2 mx-auto"
+                onClick={loadMoreEvents}
+              >
+                Show more events
+              </button>
+            </div>
+          )
+        )}
       </div>
     </div>
   );
@@ -40,6 +62,7 @@ PastEvents.propTypes = {
       photosFormat: PropTypes.string.isRequired,
     })
   ).isRequired,
+  showAllEvents: PropTypes.bool,
 };
 
 export default PastEvents;

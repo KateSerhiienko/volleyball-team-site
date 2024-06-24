@@ -201,7 +201,15 @@ const App = () => {
       <>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage data={data} />} />
-          <Route path="/events" element={<EventsPage />} />
+          <Route
+            path="/events"
+            element={
+              <EventsPage
+                eventsArchive={data.eventsArchive}
+                upcomingEvents={data.upcomingEvents}
+              />
+            }
+          />
           <Route path="/team" element={<TeamPage />} />
         </Route>
         <Route path="/*" element={<NotFoundPage />} />

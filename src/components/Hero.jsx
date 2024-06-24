@@ -4,8 +4,14 @@ import { Link } from 'react-router-dom';
 import heroBg from '../assets/images/hero-bg.webp';
 import player from '../assets/images/hero-player.png';
 import ball from '../assets/images/hero-ball.png';
+import Upcoming from './Upcoming';
 
-const Hero = ({ children }) => {
+const Hero = ({
+  isFullHero = true,
+  title = 'FREIBERGER MAULWÜRFE TEAM',
+  subtitle = 'WELCOME TO',
+  upcomingEvents,
+}) => {
   const offsetX = useMotionValue(0);
   const offsetY = useMotionValue(0);
 
@@ -40,7 +46,7 @@ const Hero = ({ children }) => {
     offsetY.set(0);
   };
 
-  return (
+  return isFullHero ? (
     <section
       className="flex flex-col justify-end relative w-full h-screen min-h-600 overflow-hidden bg-hero-bg bg-cover bg-center"
       style={{
@@ -87,7 +93,7 @@ const Hero = ({ children }) => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 60, damping: 20 }}
         >
-          {children}
+          <Upcoming upcomingEvents={upcomingEvents} />
         </motion.div>
 
         <motion.div
@@ -110,11 +116,42 @@ const Hero = ({ children }) => {
         </motion.div>
       </div>
     </section>
+  ) : (
+    <section
+      className="w-full h-fit overflow-hidden bg-hero-bg bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${heroBg})`,
+      }}
+    >
+      <div
+        className="w-full h-full"
+        style={{
+          background:
+            'radial-gradient(circle, rgba(17,17,21,0) 0%, rgba(17,17,21,0.6) 20%, rgba(17,17,21,1) 100%)',
+        }}
+      >
+        <div className="flex flex-col-reverse justify-between items-center md:flex-row w-full h-full pt-32 pb-10 external-container">
+          <div className="max-w-sm self-start">
+            <h1 className="mt-10 md:mt-0 mb-4 font-accent tracking-widest font-bold">
+              <p className="text-lg text-red-600">{subtitle}</p>
+              <p className="text-6xl text-white">{title}</p>
+            </h1>
+          </div>
+
+          <div className="max-w-sm self-end">
+            <Upcoming upcomingEvents={upcomingEvents} />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
 Hero.propTypes = {
-  children: PropTypes.node,
+  isFullHero: PropTypes.bool,
+  subtitle: PropTypes.string,
+  title: PropTypes.string,
+  upcomingEvents: PropTypes.array,
 };
 
 export default Hero;

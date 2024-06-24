@@ -17,10 +17,12 @@ const PastEvents = ({ pastEvents, showAllEvents }) => {
   return (
     <div className="bg-main-dark/10">
       <div className="external-container py-10 sm:py-16 lg:py-20">
-        <h2 className="mb-4 text-center font-accent tracking-widest font-bold">
-          <p className="text-lg text-red-600">Gallery of</p>
-          <p className="text-4xl">our past events</p>
-        </h2>
+        {!showAllEvents && (
+          <h2 className="mb-4 text-center font-accent tracking-widest font-bold">
+            <p className="text-lg text-red-600">Gallery of</p>
+            <p className="text-4xl">our past events</p>
+          </h2>
+        )}
         <div className="mb-10">
           {eventsToShow.slice(0, visibleCount).map((event, index) => (
             <EventCard key={index} event={event} />

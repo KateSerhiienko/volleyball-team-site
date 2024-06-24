@@ -1,5 +1,4 @@
-import Upcoming from '../components/Upcoming';
-import Hero from '../components/Hero';
+import PropTypes from 'prop-types';
 import LastEvent from '../components/LastEvent';
 import PastEvents from '../components/PastEvents';
 import Team from '../components/Team';
@@ -7,9 +6,6 @@ import Team from '../components/Team';
 const HomePage = ({ data }) => {
   return (
     <>
-      <Hero>
-        <Upcoming upcomingEvents={data.upcomingEvents} />
-      </Hero>
       <LastEvent
         lastEvent={data.eventsArchive[data.eventsArchive.length - 1]}
       />
@@ -17,6 +13,10 @@ const HomePage = ({ data }) => {
       <Team teamMembers={data.teamMembers} />
     </>
   );
+};
+
+HomePage.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 
 export default HomePage;

@@ -199,18 +199,19 @@ const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-        <Route path="/" element={<MainLayout />}>
+        <Route
+          path="/"
+          element={<MainLayout upcomingEvents={data.upcomingEvents} />}
+        >
           <Route index element={<HomePage data={data} />} />
           <Route
             path="/events"
-            element={
-              <EventsPage
-                eventsArchive={data.eventsArchive}
-                upcomingEvents={data.upcomingEvents}
-              />
-            }
+            element={<EventsPage eventsArchive={data.eventsArchive} />}
           />
-          <Route path="/team" element={<TeamPage />} />
+          <Route
+            path="/team"
+            element={<TeamPage teamMembers={data.teamMembers} />}
+          />
         </Route>
         <Route path="/*" element={<NotFoundPage />} />
       </>

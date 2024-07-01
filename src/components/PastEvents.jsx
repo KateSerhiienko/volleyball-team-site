@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import EventCard from './EventCard';
 
-const PastEvents = ({ pastEvents, showAllEvents }) => {
+const PastEvents = ({ pastEvents, showAllEvents = false }) => {
   const [visibleCount, setVisibleCount] = useState(6);
 
   const eventsToShow = showAllEvents

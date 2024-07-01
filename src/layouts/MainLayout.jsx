@@ -47,7 +47,7 @@ const MainLayout = ({ upcomingEvents }) => {
 };
 
 MainLayout.propTypes = {
-  upcomingEvents: PropTypes.object.isRequired,
+  upcomingEvents: PropTypes.array.isRequired,
 };
 
 export default MainLayout;

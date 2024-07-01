@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import EventCard from './EventCard';
+import EventCardCover from './EventCardCover';
 
 const PastEvents = ({ pastEvents, showAllEvents = false }) => {
   const [visibleCount, setVisibleCount] = useState(6);
@@ -25,13 +25,13 @@ const PastEvents = ({ pastEvents, showAllEvents = false }) => {
         )}
         <div className="mb-10">
           {eventsToShow.slice(0, visibleCount).map((event, index) => (
-            <EventCard key={index} event={event} />
+            <EventCardCover key={index} event={event} />
           ))}
         </div>
         {!showAllEvents ? (
           <Link to="/events">
             <button className="block btn-primary-2 mx-auto">
-              Show more events
+              Show all events
             </button>
           </Link>
         ) : (

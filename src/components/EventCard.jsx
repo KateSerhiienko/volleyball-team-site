@@ -1,39 +1,95 @@
+import { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { FaMapMarker, FaCalendar, FaTrophy } from 'react-icons/fa';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const EventCard = ({ event }) => {
+  const [currentPhoto, setCurrentPhoto] = useState(0);
+  const mainSlider = useRef(null);
+  const thumbsSlider = useRef(null);
+
+  const settingsMain = {
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    fade: true,
+    swipe: false,
+    asNavFor: thumbsSlider.current,
+    beforeChange: (oldIndex, newIndex) => setCurrentPhoto(newIndex),
+  };
+
+  const settingsThumbs = {
+    infinite: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    asNavFor: mainSlider.current,
+    focusOnSelect: true,
+    centerMode: true,
+    centerPadding: '10px',
+    swipeToSlide: true,
+    arrows: false,
+    variableWidth: true,
+    beforeChange: (oldIndex, newIndex) => {
+      mainSlider.current.slickGoTo(newIndex);
+    },
+  };
+
+  const handleThumbnailClick = (index) => {
+    setCurrentPhoto(index);
+  };
+
   return (
-    <div className="flex flex-col justify-between p-4 mb-4 rounded overflow-hidden bg-white md:flex-row">
-      <div
-        className="shrink-0 w-full h-72 md:w-72 md:h-40 mr-4 mb-4 rounded bg-cover bg-center bg-no-repeat md:mb-0"
-        style={{
-          backgroundImage: `url(/events/event-${event.date}/event-${
-            event.date
-          }-${event.coverPhoto || 1}.${event.photosFormat})`,
-        }}
-      ></div>
-      <div className="md:mr-4">
-        <h3 className="line-clamp-1 text-xl uppercase">
-          <span className="mr-4 font-bold transition hover:text-red-600 cursor-pointer">
-            {event.title}
-          </span>
+    <>
+      <>
+        <h2 className="text-center font-accent tracking-widest font-bold">
+          <p className="text-4xl">{event.title}</p>
+        </h2>
+        <p className="text-center">
+          <span className="mr-1">Place in the tournament: </span>
           <FaTrophy className="inline pb-1 mr-1 text-red-600" />
           <span>{event.placeInTheTournament}</span>
-        </h3>
-        <p className="line-clamp-1 text-red-600 text-sm mb-4">
+        </p>
+        <p className="mb-4 text-center line-clamp-1 text-red-600 text-sm">
           <FaCalendar className="inline pb-1 mr-1" />
           <span className="mr-2">{event.date}</span>
           <FaMapMarker className="inline pb-1" />
           <span>{event.place}</span>
         </p>
-        <p className="h-24 line-clamp-4 opacity-60 mb-4 md:mb-0">
-          {event.description}
-        </p>
-      </div>
-      <div className="flex md:hidden lg:flex  items-center shrink-0 md:pl-4 md:border-l-2">
-        <button className="btn-primary-2">More info</button>
-      </div>
-    </div>
+        <p className="h-24 line-clamp-4 opacity-60 mb-4">{event.description}</p>
+      </>
+      <Slider ref={mainSlider} {...settingsMain} className="slider-for mb-4">
+        {Array.from({ length: event.amountOfPhotos }).map((_, index) => (
+          <div key={index}>
+            <img
+              className="w-full h-96 object-contain object-center"
+              src={`/events/event-${event.date}/event-${event.date}-${
+                index + 1
+              }.${event.photosFormat}`}
+              alt={`Event ${index + 1}`}
+            />
+          </div>
+        ))}
+      </Slider>
+      <Slider ref={thumbsSlider} {...settingsThumbs} className="slider-nav">
+        {Array.from({ length: event.amountOfPhotos }).map((_, index) => (
+          <div key={index} onClick={() => handleThumbnailClick(index)}>
+            <div
+              className={`w-32 h-20 mx-4 bg-cover bg-center cursor-pointer transition ${
+                currentPhoto === index ? 'brightness-100' : ''
+              } brightness-50`}
+              style={{
+                backgroundImage: `url(/events/event-${event.date}/event-${
+                  event.date
+                }-${index + 1}.${event.photosFormat})`,
+              }}
+            ></div>
+          </div>
+        ))}
+      </Slider>
+    </>
   );
 };
 

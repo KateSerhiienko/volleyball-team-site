@@ -82,6 +82,7 @@ Team.propTypes = {
       img: PropTypes.string.isRequired,
     })
   ).isRequired,
+  showAllTeam: PropTypes.bool,
 };
 
 export default Team;

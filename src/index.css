@@ -62,7 +62,7 @@
 }
 
 .slick-arrow {
-  @apply z-10 transition-all opacity-50 hover:opacity-80;
+  @apply z-10 transition-all opacity-70 hover:opacity-90;
 }
 
 .slick-arrow:before {

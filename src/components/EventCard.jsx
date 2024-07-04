@@ -23,7 +23,7 @@ const EventCard = ({ event }) => {
 
   const settingsThumbs = {
     infinite: true,
-    slidesToShow: 5,
+    slidesToShow: 1,
     slidesToScroll: 1,
     asNavFor: mainSlider.current,
     focusOnSelect: true,
@@ -52,19 +52,19 @@ const EventCard = ({ event }) => {
           <FaTrophy className="inline pb-1 mr-1 text-red-600" />
           <span>{event.placeInTheTournament}</span>
         </p>
-        <p className="mb-4 text-center line-clamp-1 text-red-600 text-sm">
+        <p className="mb-4 text-center text-red-600 text-sm">
           <FaCalendar className="inline pb-1 mr-1" />
           <span className="mr-2">{event.date}</span>
           <FaMapMarker className="inline pb-1" />
           <span>{event.place}</span>
         </p>
-        <p className="h-24 line-clamp-4 opacity-60 mb-4">{event.description}</p>
+        <p className="h-full opacity-60 mb-4">{event.description}</p>
       </>
       <Slider ref={mainSlider} {...settingsMain} className="slider-for mb-4">
         {Array.from({ length: event.amountOfPhotos }).map((_, index) => (
           <div key={index}>
             <img
-              className="w-full h-96 object-contain object-center"
+              className="w-full h-64 sm:h-96 object-contain object-center"
               src={`/events/event-${event.date}/event-${event.date}-${
                 index + 1
               }.${event.photosFormat}`}
@@ -77,9 +77,9 @@ const EventCard = ({ event }) => {
         {Array.from({ length: event.amountOfPhotos }).map((_, index) => (
           <div key={index} onClick={() => handleThumbnailClick(index)}>
             <div
-              className={`w-32 h-20 mx-4 bg-cover bg-center cursor-pointer transition ${
-                currentPhoto === index ? 'brightness-100' : ''
-              } brightness-50`}
+              className={`w-16 h-10 mx-1 sm:w-32 sm:h-20 md:mx-4 bg-cover bg-center cursor-pointer transition ${
+                currentPhoto === index ? 'brightness-90' : ''
+              } brightness-50  `}
               style={{
                 backgroundImage: `url(/events/event-${event.date}/event-${
                   event.date
